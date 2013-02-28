@@ -8,9 +8,16 @@ Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 class Quotes< Sinatra::Application
 
   configure do
-    set :server, :trinidad
+    set :server, :thin
   end
 
+  configure :development, :test do
+  end
+
+  configure :production do
+  end
+
+  # do delete or add JSON helpers...
   helpers do
     include Rack::Utils
     alias_method :h, :escape_html
