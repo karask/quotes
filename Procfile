@@ -1,1 +1,1 @@
-web: bin/trinidad -r config.ru --threadsafe --rackup -p $PORT -e $RACK_ENV
+web: bundle exec thin -R config.ru start -p $PORT -e $RACK_ENV

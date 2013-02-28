@@ -3,7 +3,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'sinatra'
-require 'trinidad'
+require 'thin'
 
 class Quotes< Sinatra::Application
 
