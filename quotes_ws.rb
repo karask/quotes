@@ -1,9 +1,9 @@
 # encoding: utf-8
 require 'rubygems'
-require 'bundler/setup'
+require 'bundler'
 
-require 'sinatra'
-require 'thin'
+# requires all default gems (from the Gemfile) plus the environment's gems
+Bundler.require(:default, ENV['RACK_ENV'].to_sym)
 
 class Quotes< Sinatra::Application
 
