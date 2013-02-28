@@ -1,7 +1,8 @@
 
-Requires:
+# Requires
 * rvm as a function
-* rvm install jruby
-* gem install rubygems-bundler
+* gem install rubygems-bundler (or just bundler?)
 
+# Start
+$ thin -R config.ru start
 
