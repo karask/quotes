@@ -1,7 +1,7 @@
 
 # Requires
 * rvm as a function
-* gem install rubygems-bundler (or just bundler?)
+* gem install bundler  (or rubygems-bundler?)
 
 # Installing for development
 $ bundle install --without production
