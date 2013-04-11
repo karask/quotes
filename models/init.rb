@@ -4,8 +4,9 @@ require 'sequel'
 Sequel::Model.plugin(:schema)
 
 if ENV['RACK_ENV'] == "production"
-  DB = Sequel.connect('postgres://user:password@localhost/blog')
-  DB << "SET CLIENT_ENCODING TO 'UTF8';"  # also see :encoding param from postgres
+#  DB = Sequel.connect('postgres://user:password@localhost/blog')
+#  DB << "SET CLIENT_ENCODING TO 'UTF8';"  # also see :encoding param from postgres
+  DB = Sequel.sqlite
 else
   DB = Sequel.sqlite
 end
