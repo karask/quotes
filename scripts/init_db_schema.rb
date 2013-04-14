@@ -2,7 +2,8 @@
 require 'rubygems'
 require 'sequel'
 
-DB = Sequel.sqlite(ARGV[0])
+# inits appropriate database called: DB
+require_relative '../models/init.rb'
 
 DB.create_table :quotes do
   primary_key :id
