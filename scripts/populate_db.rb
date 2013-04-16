@@ -14,41 +14,30 @@ CSV.foreach('data/quotes_development.csv', :col_sep => '|' ) do |row|
   alt_name_str = row[2] || name_str
   tags_arr = row[3].split(",")
 
-  # add a new quote
-  quote = Quote.create(:quote => quote_str)
-
-  # add author if not in authors table and add to quote
+  # add author if not in authors table
   author = Author[:name => name_str]
   unless author
     puts "not there, add author"
-    quote.author = Author.create(:name => name_str, :alt_name => alt_name_str)
-  else
-    puts "author there, just add"
-    quote.author = author
+    author = Author.create(:name => name_str, :alt_name => alt_name_str)
   end
 
-  # add any of the tags not in tags table and add to quote
+  # add any of the tags not in tags table
+  tags = []  # to place quote's tags
   tags_arr.each do |tag_str|
     tag = Tag[:name => tag_str]
     unless tag
       puts "tag not there, add"
-      quote.add_tag(Tag.create(:name => tag_str))
+      tags << Tag.create(:name => tag_str)
     else
-      puts "tag there"
-      quote.add_tag(tag)
+      tags << tag
     end
   end
 
+  # add a new quote
+  quote = Quote.create(:quote => quote_str)
+  quote.author = author
+  tags.each { |t| quote.add_tag(t) }
   quote.save
-
-#  tags.each do |t|
-#    puts t
-#  end
 
 end
 
-# for each quote 
-#   check if author exists, if not create author
-#   for each tag check if it exists, if not create tag
-#   create quote
-#
