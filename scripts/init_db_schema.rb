@@ -17,11 +17,13 @@ DB.create_table :authors do
   primary_key :id
   String :name, :size => 50, :unique => true
   String :alt_name, :size => 50, :unique => true
+  Integer :quote_count
 end
 
 DB.create_table :tags do
   primary_key :id
   String :name, :size => 25, :unique => true
+  Integer :quote_count
 end
 
 # many to many quotes - tags table 

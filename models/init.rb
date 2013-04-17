@@ -12,5 +12,5 @@ else
 end
 
 require_relative 'authors'
-require_relative 'quotes'
 require_relative 'tags'
+require_relative 'quotes'
