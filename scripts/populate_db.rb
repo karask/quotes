@@ -8,7 +8,7 @@ require_relative '../models/init.rb'
 # second arg is the name of the .csv to read quotes from
 # Format of .csv is: quote|name|alt_name|tags
 
-CSV.foreach('data/quotes_development.csv', :col_sep => '|' ) do |row|
+CSV.foreach('data/quotes_development597.csv', :col_sep => '|' ) do |row|
   quote_str = row[0]
   name_str = row[1]
   alt_name_str = row[2] || name_str

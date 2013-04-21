@@ -1,7 +1,34 @@
-!!!
 
-%html
-  %head
-    %title Welcome
-  %body
-    %h1 "#{@title} - #{ENV['RACK_ENV']} - #{@a.name}"
+.alert.alert-info
+  %h3 Καλώς Ορίσατε
+  %p Εδώ θα βρείτε αυτό και εκείνο και το άλλο... και μετά αυτό. Ψάξτε κάτω αριστερά με συγγραφέα ή με ετικέτα. Εναλλακτικά διαλέξτε μία από τις ετικέτες με τα πιο πολλά γνωμικά.
+
+.row
+  .span6
+    .alert.alert-info
+      %form.offset1
+        %h3 Το'πε...
+        .input-prepend
+          %span.add-on
+            %i.icon-user
+          %input{:type => "text", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @authors}
+        .input-prepend
+          %span.add-on
+            %i.icon-th
+          %input{:type => "text", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @tags}
+  .span6
+    .alert.alert-warning
+      %h4 Καλώς Ορίσατε
+      %p Εδώ θα βρείτε αυτό και εκείνο και το άλλο... και μετά αυτό. Ψάξτε κάτω αριστερά με συγγραφέα ή με ετικέτα. Εναλλακτικά διαλέξτε μία από τις ετικέτες με τα πιο πολλά γνωμικά.
+
+%h1 "#{ENV['RACK_ENV']}"
+
+-# @quotes.each do |q|
+  %p= q.quote
+  %p= q.author.name
+
+-# @authors.each do |a|
+  %p= a.name
+
+-# @tags.each do |t|
+  %p= t.name

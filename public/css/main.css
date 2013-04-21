@@ -1,0 +1,65 @@
+body {
+    padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
+    font-family: Verdana, Helvetica, sans-serif;
+/*    background-color: #FFFFCC; */
+}
+
+
+.main-header {
+  padding: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+/*
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+*/
+}
+
+.main-header img {
+  float: right;
+}
+
+.random-quote {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 0px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  color: #3a87ad;
+  background-color: #beecb1;
+/*  border: 3px solid #000000;  #bce8f1 */
+
+  padding-right: 15px;
+  padding-left: 0;
+
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.random-quote p {
+  padding-left: 10px;
+  margin-bottom: 3px;
+  font-size: 17.5px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+
+.random-quote small {
+  padding-left: 10px;
+  display: block;
+  line-height: 20px;
+  color: #999999;
+  text-align: right;
+}
+
+
+.random-quote small:before {
+  content: '\2014 \00A0';
+}
+
+
