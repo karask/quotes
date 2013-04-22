@@ -6,16 +6,18 @@
 .row
   .span6
     .alert.alert-info
-      %form.offset1
-        %h3 Το'πε...
+      %h3 Το'πε...
+      %form.offset1{:method => "POST", :action => "/author_quotes"}
         .input-prepend
           %span.add-on
             %i.icon-user
-          %input{:type => "text", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @authors}
+          %input{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @authors}
+      %form.offset1{:method => "POST", :action => "/tag_quotes"}
         .input-prepend
           %span.add-on
             %i.icon-th
-          %input{:type => "text", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @tags}
+          %input{:type => "text", :name => "tag", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @tags}
+          %input.hide_submit{:type => "submit"}
   .span6
     .alert.alert-warning
       %h4 Καλώς Ορίσατε
@@ -23,12 +25,3 @@
 
 %h1 "#{ENV['RACK_ENV']}"
 
--# @quotes.each do |q|
-  %p= q.quote
-  %p= q.author.name
-
--# @authors.each do |a|
-  %p= a.name
-
--# @tags.each do |t|
-  %p= t.name

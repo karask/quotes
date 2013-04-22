@@ -1,0 +1,10 @@
+
+%h1= @author
+
+- if @quotes_list.size > 0
+  %h2= "Αριθμός γνωμικών: #{@quotes_list.size}"
+- else
+  %h2= "Δεν υπάρχει αυτός ο συγγραφέας στη βάση μας."
+
+- @quotes_list.each do |q|
+  %p= q[:quote]

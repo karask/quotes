@@ -1,7 +1,13 @@
 # could declare vars so that paths are not hard-coded!
 
 
-task :default => [:db]
+task :default => [:start]
+
+desc 'Starts app with thin server'
+task :start do
+  puts `thin -R config.ru start`
+end
+
 
 task :db => ["db:clean", "db:init", "db:populate"] do
   puts "Cleaning, initializing db schema and populating with rows"

@@ -1,0 +1,11 @@
+
+
+%h1= @tag
+
+- if @quotes_list.size > 0
+  %h2= "Αριθμός γνωμικών: #{@quotes_list.size}"
+- else
+  %h2= "Δεν υπάρχει αυτή η ετικέτα στη βάση μας."
+
+- @quotes_list.each do |q|
+  %p= q[:quote]

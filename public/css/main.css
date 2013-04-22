@@ -62,4 +62,10 @@ body {
   content: '\2014 \00A0';
 }
 
+.hide_submit {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
 
