@@ -5,10 +5,12 @@ task :default => [:start]
 
 desc 'Starts app with thin server'
 task :start do
-  puts `thin -R config.ru start`
+  # exec replaces current process with command
+  exec "thin -R config.ru start"
 end
 
 
+# database tasks
 task :db => ["db:clean", "db:init", "db:populate"] do
   puts "Cleaning, initializing db schema and populating with rows"
 end

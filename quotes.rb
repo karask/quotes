@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'bundler'
 
-class Quotes< Sinatra::Application
+class Quotes < Sinatra::Application
 
   configure do
     set :server, :thin
