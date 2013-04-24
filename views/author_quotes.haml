@@ -2,9 +2,22 @@
 %h1= @author
 
 - if @quotes_list.size > 0
-  %h2= "Αριθμός γνωμικών: #{@quotes_list.size}"
+  %h2= "Αριθμός γνωμικών: #{@quotes_list.size} - #{settings.page_size}"
 - else
   %h2= "Δεν υπάρχει αυτός ο συγγραφέας στη βάση μας."
 
 - @quotes_list.each do |q|
   %p= q[:quote]
+
+-# This is repeated in both author_quotes and tag_quotes -- should be included!
+- if @pages > 1
+  .pagination.pagination-centered
+    %ul
+      %li
+        %a{:href => "aa"} «
+      - 1.upto(@pages) do |p|
+        %li
+          %a{:href => "/author_quotes?author=#{@author}&page=#{p}"}= p
+      %li
+        %a{:href => "aa"} »
+

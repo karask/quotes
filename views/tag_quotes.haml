@@ -1,5 +1,4 @@
 
-
 %h1= @tag
 
 - if @quotes_list.size > 0
@@ -9,3 +8,20 @@
 
 - @quotes_list.each do |q|
   %p= q[:quote]
+
+-# This is repeated in both author_quotes and tag_quotes -- should be included!
+- if @pages > 1
+  .pagination.pagination-centered
+    %ul
+      %li
+        %a{:href => "aa"} «
+      - 1.upto(@pages) do |p|
+        - if @page == p
+          %li.active
+            %a{:href => "javascript:;"}= p
+        - else
+          %li
+            %a{:href => "/tag_quotes?tag=#{@tag}&page=#{p}"}= p
+      %li
+        %a{:href => "aa"} »
+
