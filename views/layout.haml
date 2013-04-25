@@ -7,6 +7,31 @@
     %link{:href => "/css/main.css", :rel => "stylesheet"}
     %link{:href => "/images/parrot-head-tiny.png", :rel => "shortcut icon"}
   %body
+
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          .row
+            .span2
+              %a{:href => "/"}
+                %img.pull-left{:src => "/images/parrot-logo.png", :width => 35}
+              %a.brand{:href => "/"}
+                %em Το'πε ...
+            .span3
+              %form.navbar-search{:method => "POST", :action => "/author_quotes"}
+                %input#author-search-input.search-query{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @authors}
+            .span1
+              %p.navbar-text.text-center.lead
+                %em ...
+
+            .span3
+              %form.navbar-search{:method => "POST", :action => "/tag_quotes"}
+                %input#tag-search-input.search-query{:type => "text", :name => "tag", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @tags}
+
+
+
+
     .container
       .main-header
         %img{:src => "/images/parrot.png"}
@@ -19,6 +44,14 @@
               %p= @random_quote[:quote]
               %small= @random_quote[:name]
       = yield
+
+
+
     -# Placed at the end of the document so the pages load faster 
     %script{:src => "/js/jquery-1.9.1.min.js"}
     %script{:src => "/bootstrap2.3.1/js/bootstrap.min.js"}
+    %script{:src => "/js/main.js"}
+
+
+
+

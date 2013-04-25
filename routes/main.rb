@@ -7,6 +7,7 @@ class Quotes < Sinatra::Application
   end
 
 
+  # setup variables for header!
   before do
     @title = "Το'πε..."
 
@@ -15,6 +16,20 @@ class Quotes < Sinatra::Application
     # join tables and get one row after offset - returns dataset with one element!
     quotes_with_authors = DB[:quotes].join(:authors, :id => :author_id).limit(1, offset)
     @random_quote = quotes_with_authors.first
+
+    # get all authors for typeahead search
+    authors = Author.order(:name).all
+    
+    # use both name and alt_name for typeahead matching (if too many we can use a JS file)
+    # TODO
+    @authors = authors.map { |a| a[:name] }.to_s
+
+    # get all tags for typeahead search
+    tags = Tag.order(:name).all
+    # use tag name for typeahead matching
+    @tags = tags.map { |t| t[:name] }.to_s
+
+
   end
 
 
@@ -27,16 +42,16 @@ class Quotes < Sinatra::Application
 
   get "/" do
     # get all authors for typeahead search
-    authors = Author.order(:name).all
+#    authors = Author.order(:name).all
     
     # use both name and alt_name for typeahead matching (if too many we can use a JS file)
     # TODO
-    @authors = authors.map { |a| a[:name] }.to_s
+#    @authors = authors.map { |a| a[:name] }.to_s
 
     # get all tags for typeahead search
-    tags = Tag.order(:name).all
+#    tags = Tag.order(:name).all
     # use tag name for typeahead matching
-    @tags = tags.map { |t| t[:name] }.to_s
+#    @tags = tags.map { |t| t[:name] }.to_s
 
 #    author = Author[:name => "Βολταίρος"]
 #    @quotes = Quote.where(:author_id => author.id)

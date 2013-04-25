@@ -4,6 +4,12 @@ body {
 /*    background-color: #FFFFCC; */
 }
 
+.logo {
+  position: relative;
+  img {
+    top: 5px;
+  }
+}
 
 .main-header {
   padding: 30px;
