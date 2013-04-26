@@ -11,6 +11,27 @@ body {
   }
 }
 
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding-top: 20;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    padding-top: 0;
+  }
+
+  #author-search-form, #tag-search-form {
+    margin: 0px 0px
+  }
+
+  #c-navbar-divider {
+    display: none;
+  }
+}
+
 .main-header {
   padding: 30px;
   padding-bottom: 10px;

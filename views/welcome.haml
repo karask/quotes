@@ -6,13 +6,15 @@
 .row
   .span6
     .alert.alert-info
-      %h3 Το'πε...
-      %form.offset1{:method => "POST", :action => "/author_quotes"}
+      %h4 Καλώς Ορίσατε
+      %p Εδώ θα βρείτε αυτό και εκείνο και το άλλο... και μετά αυτό. Ψάξτε κάτω αριστερά με συγγραφέα ή με ετικέτα. Εναλλακτικά διαλέξτε μία από τις ετικέτες με τα πιο πολλά γνωμικά.
+      -#%h3 Το'πε...
+      -#%form{:method => "POST", :action => "/author_quotes"}
         .input-prepend
           %span.add-on
             %i.icon-user
           %input{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-source" => @authors}
-      %form.offset1{:method => "POST", :action => "/tag_quotes"}
+      -#%form{:method => "POST", :action => "/tag_quotes"}
         .input-prepend
           %span.add-on
             %i.icon-th
@@ -23,5 +25,5 @@
       %h4 Καλώς Ορίσατε
       %p Εδώ θα βρείτε αυτό και εκείνο και το άλλο... και μετά αυτό. Ψάξτε κάτω αριστερά με συγγραφέα ή με ετικέτα. Εναλλακτικά διαλέξτε μία από τις ετικέτες με τα πιο πολλά γνωμικά.
 
-%h1 "#{ENV['RACK_ENV']}"
+-#%h1 "#{ENV['RACK_ENV']}"
 

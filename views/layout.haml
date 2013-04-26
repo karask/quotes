@@ -3,8 +3,8 @@
   %head
     %meta{:content => "text/html", :"http-equiv" => "Content-Type", :charset => "utf-8"}
     %title= @title
-    %link{:href => "/bootstrap2.3.1/css/bootstrap.css", :rel => "stylesheet"}
-    %link{:href => "/bootstrap2.3.1/css/bootstrap-responsive.css", :rel => "stylesheet"}
+    %link{:href => "/c-bootstrap-collapse/css/bootstrap.css", :rel => "stylesheet"}
+    -#%link{:href => "/bootstrap2.3.1/css/bootstrap-responsive.css", :rel => "stylesheet"}
     %link{:href => "/css/main.css", :rel => "stylesheet"}
     %link{:href => "/images/parrot-head-tiny.png", :rel => "shortcut icon"}
   %body
@@ -13,7 +13,32 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container
-          .row
+          %a{:href => "/"}
+            %img.pull-left{:src => "/images/parrot-logo.png", :width => 35}
+          %a.brand{:href => "/"}
+            %em Το'πε ...
+
+          %a.btn.btn-navbar{:"data-toggle" => "collapse", :"data-target" => ".nav-collapse"}
+            %i.icon-search
+
+          .pull-right
+            .collapse.nav-collapse
+              %form#author-search-form.navbar-search.form-search{:method => "POST", :action => "/author_quotes"}
+                .input-append
+                  %input#author-search-input.search-query.input-medium{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @authors}
+                  %button.btn{:type => "submit"}
+                    %i.icon-play
+
+              %ul#c-navbar-divider.nav
+                %li.divider-vertical
+
+              %form#tag-search-form.navbar-search.form-search{:method => "POST", :action => "/tag_quotes"}
+                .input-append
+                  %input#tag-search-input.search-query.input-medium{:type => "text", :name => "tag", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @tags}
+                  %button.btn{:type => "submit"}
+                    %i.icon-play
+
+          -#.row
             .span2
               %a{:href => "/"}
                 %img.pull-left{:src => "/images/parrot-logo.png", :width => 35}
@@ -27,7 +52,7 @@
                     %i.icon-play
 
             .span1
-              %p.navbar-text.text-center.lead
+              %p#c-ellipsis-para.navbar-text.text-center.lead
                 %em ...
 
             .span3

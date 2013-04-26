@@ -62,7 +62,7 @@ class Quotes < Sinatra::Application
 
 
   get_or_post  "/author_quotes" do
-    unless params[:author].empty?
+    unless params[:author].nil? || params[:author].empty?
       @author = params[:author]
     else
       @author = "Ανώνυμος" 
@@ -84,7 +84,7 @@ class Quotes < Sinatra::Application
 
 
   get_or_post "/tag_quotes" do
-    unless params[:tag].empty?
+    unless params[:tag].nil? || params[:tag].empty?
       @tag = params[:tag]
     else
       @tag = "Άγνωστο"
