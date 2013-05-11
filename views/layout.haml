@@ -2,6 +2,13 @@
 %html
   %head
     %meta{:content => "text/html", :"http-equiv" => "Content-Type", :charset => "utf-8"}
+
+    -# To take care of the autozoom features of modern tablet/phones
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, target-densitydpi=device-dpi"}
+
+    -#%meta{:name= => "description",  :content => ""}
+    -#%meta{:name= => "keywords",  :content => ""}
+
     %title= @title
     %link{:href => "/bootstrap2.3.1/css/bootstrap.css", :rel => "stylesheet"}
     %link{:href => "/bootstrap2.3.1/css/bootstrap-responsive.css", :rel => "stylesheet"}
