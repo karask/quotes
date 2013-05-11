@@ -12,9 +12,22 @@ body {
 }
 
 
+#c-navbar-divider {
+  visibility: hidden;
+}
+
+
 @media only screen and (max-width: 768px) {
   body {
-    padding-top: 20;
+    padding-top: 0;
+  }
+
+  #author-search-form, #tag-search-form {
+    margin: 0px 0px
+  }
+
+  #c-navbar-divider {
+    display: none;
   }
 }
 

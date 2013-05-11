@@ -10,8 +10,9 @@
     -#%meta{:name= => "keywords",  :content => ""}
 
     %title= @title
-    %link{:href => "/bootstrap2.3.1/css/bootstrap.css", :rel => "stylesheet"}
-    %link{:href => "/bootstrap2.3.1/css/bootstrap-responsive.css", :rel => "stylesheet"}
+    %link{:href => "/c-bootstrap-collapse/css/bootstrap.css", :rel => "stylesheet"}
+    -#%link{:href => "/bootstrap2.3.1/css/bootstrap.css", :rel => "stylesheet"}
+    -#%link{:href => "/bootstrap2.3.1/css/bootstrap-responsive.css", :rel => "stylesheet"}
     %link{:href => "/css/main.css", :rel => "stylesheet"}
     %link{:href => "/images/parrot-head-tiny.png", :rel => "shortcut icon"}
   %body
@@ -30,26 +31,34 @@
               %a{:href => "/authors"} Συγγραφείς
             %li
               %a{:href => "/tags"} Θέματα
+            %ul#c-navbar-divider.nav
+              %li.divider-vertical
+            %ul#c-navbar-divider.nav
+              %li.divider-vertical
+            %ul#c-navbar-divider.nav
+              %li.divider-vertical
+            %ul#c-navbar-divider.nav
+              %li.divider-vertical
 
           %a.btn.btn-navbar{:"data-toggle" => "collapse", :"data-target" => ".nav-collapse"}
             %i.icon-search
 
-          .pull-right
-            .collapse.nav-collapse
-              %form#author-search-form.navbar-search.form-search{:method => "POST", :action => "/author_quotes"}
-                .input-append
-                  %input#author-search-input.search-query.input-medium{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @author_names}
-                  %button.btn{:type => "submit"}
-                    %i.icon-play
+          -#.pull-right
+          .collapse.nav-collapse
+            %form#author-search-form.navbar-search.form-search{:method => "POST", :action => "/author_quotes"}
+              .input-append
+                %input#author-search-input.search-query.input-medium{:type => "text", :name => "author", :placeholder => "Ποιός;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @author_names}
+                %button.btn{:type => "submit"}
+                  %i.icon-play
 
-              %ul#c-navbar-divider.nav
-                %li.divider-vertical
+            %ul#c-navbar-divider.nav
+              %li.divider-vertical
 
-              %form#tag-search-form.navbar-search.form-search{:method => "POST", :action => "/tag_quotes"}
-                .input-append
-                  %input#tag-search-input.search-query.input-medium{:type => "text", :name => "tag", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @tag_names}
-                  %button.btn{:type => "submit"}
-                    %i.icon-play
+            %form#tag-search-form.navbar-search.form-search{:method => "POST", :action => "/tag_quotes"}
+              .input-append
+                %input#tag-search-input.search-query.input-medium{:type => "text", :name => "tag", :placeholder => "Τι;", :autocomplete => "off", :"data-provide" => "typeahead", :"data-mysource" => @tag_names}
+                %button.btn{:type => "submit"}
+                  %i.icon-play
 
 
 
