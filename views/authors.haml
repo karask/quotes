@@ -1,0 +1,6 @@
+
+%h1 Συγγραφείς
+
+- @authors.each do |author|
+  %p
+    %a{:href => "/author_quotes?author=#{author.name}"}= author.name

@@ -1,0 +1,7 @@
+
+
+%h1 Θέματα
+
+- @tags.each do |tag|
+  %p
+    %a{:href => "/tag_quotes?tag=#{tag.name}"}= tag.name

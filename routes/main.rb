@@ -18,16 +18,16 @@ class Quotes < Sinatra::Application
     @random_quote = quotes_with_authors.first
 
     # get all authors for typeahead search
-    authors = Author.order(:name).all
+    @authors = Author.order(:name).all
     
     # use both name and alt_name for typeahead matching (if too many we can use a JS file)
     # TODO
-    @authors = authors.map { |a| a[:name] }.to_s
+    @author_names = @authors.map { |a| a[:name] }.to_s
 
     # get all tags for typeahead search
-    tags = Tag.order(:name).all
+    @tags = Tag.order(:name).all
     # use tag name for typeahead matching
-    @tags = tags.map { |t| t[:name] }.to_s
+    @tag_names = @tags.map { |t| t[:name] }.to_s
 
 
   end
@@ -41,6 +41,7 @@ class Quotes < Sinatra::Application
 
 
   get "/" do
+    @request = request
     # get all authors for typeahead search
 #    authors = Author.order(:name).all
     
@@ -110,6 +111,14 @@ class Quotes < Sinatra::Application
     @quotes_list = all_quotes_ds.limit(settings.page_size, page_offset).all
 
     haml :tag_quotes, :layout => true
+  end
+
+  get "/authors" do
+    haml :authors, :layout => true
+  end
+
+  get "/tags" do
+    haml :tags, :layout => true
   end
 
 

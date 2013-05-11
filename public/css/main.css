@@ -12,6 +12,7 @@ body {
 }
 
 
+/*
 @media only screen and (max-width: 768px) {
   body {
     padding-top: 20;
@@ -31,6 +32,8 @@ body {
     display: none;
   }
 }
+*/
+
 
 .main-header {
   padding: 30px;
