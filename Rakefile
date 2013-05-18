@@ -15,7 +15,14 @@ task :db => ["db:clean", "db:init", "db:populate"] do
   puts "Cleaning, initializing db schema and populating with rows"
 end
 
+
 namespace :db do
+
+  desc 'Deletes the database'
+  task :clean do
+    File.delete('db/quotes.db') if File.exists?('db/quotes.db')
+  end
+
   desc 'Creates the database schema: db is ready to be populated'
   task :init do
     touch 'db/quotes.db' unless File.exist?('db/quotes.db')
@@ -27,8 +34,4 @@ namespace :db do
     ruby "scripts/populate_db.rb"
   end
 
-  desc 'Deletes the database'
-  task :clean do
-    File.delete('db/quotes.db')
-  end
 end

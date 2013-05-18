@@ -22,7 +22,7 @@ end
 
 DB.create_table :tags do
   primary_key :id
-  String :name, :size => 25, :unique => true
+  String :name, :size => 25, :unique => true, :collate => 'greek'
   Integer :quote_count
 end
 
