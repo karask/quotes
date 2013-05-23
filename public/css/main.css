@@ -29,6 +29,11 @@ body {
   #c-navbar-divider {
     display: none;
   }
+
+  #c-logo-img {
+    margin-top: 2em;
+  }
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -62,7 +67,7 @@ body {
 */
 }
 
-.main-header img {
+#c-logo-img {
   float: right;
 }
 

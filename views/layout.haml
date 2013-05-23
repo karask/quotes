@@ -64,15 +64,15 @@
 
     .container
       .main-header
-        %img{:src => "/images/parrot-speaks.png"}
-        %h1
-          %em= @title
-        %br/
         .row
-          .span9
+          .span8
+            %h1
+              %em= @title
             .random-quote
               %p= @random_quote[:quote]
               %small= @random_quote[:name]
+          .span3
+            %img#c-logo-img{:src => "/images/parrot-speaks.png"}
       = yield
 
 
