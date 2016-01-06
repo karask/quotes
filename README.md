@@ -1,3 +1,6 @@
+# Introduction
+Simple Sinatra website for quotations demonstrating good MVC structure, build process and management. 
+Added rare dependancy on SQLite for on-the-fly compile and build.
 
 # Requires
 * installing rvm properly and as a function (rvm.io)
